@@ -92,17 +92,21 @@ SSH into the control node and follow the steps below:
 - Run the playbook, and navigate to kibana on your browser (http://<elk-server-ip>:5601/app/kibana) to check that the installation worked as expected. 
 
 ### Commands to download and run the playbook
-Navigate to you Ansible directory
-  run "nano hosts", add an [elk] group and add the IP address to your new VM.
-Create a playbook to configure your elk server.
-  run "touch /etc/ansible/elkplaybook.yml" and write tasks that will:
-                                      - Install docker.io
-                                      - Install pip3
-                                      - Install docker python module
-                                      - Enable system to use more memory
-                                      - Download and launch docker elk container
-                                      - Enable docker on boot
+
+ Navigate to you Ansible directory
+- run "nano hosts", add an [elk] group and add the IP address to your new VM.
+
+ Create a playbook to configure your elk server.
+- run "touch /etc/ansible/elkplaybook.yml" and write tasks that will:
+   Install docker.io
+   Install pip3
+   Install docker python module
+   Enable system to use more memory
+   Download and launch docker elk container
+   Enable docker on boot
+ 
 Run the playbook.
   run "ansible-playbook elkplaybook.yml"
-After the playbook completes ssh into your elk VM and run "docker ps". In the ouptut, you should see a single row whose second column is "sebp/elk"
+
+ After the playbook completes ssh into your elk VM and run "docker ps". In the ouptut, you should see a single row whose second column is "sebp/elk"
 If everything is correct, navigate to http://<elk-server-ip>:5601/app/kibana in your browser and the elk site should be up.
